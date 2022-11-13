@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
 
+import "./p2pm.sol";
+
 contract Escrow {
   address admin;
   uint256 public totalBalance;
@@ -29,6 +31,7 @@ contract Escrow {
   // seller accepts a trade, erc20 tokens
   // get moved to the escrow (this contract)
   function accept(address _tx_id, address _buyer, uint256 _amount) external returns (uint256) {
+    P2PM token = P2PM(p2pmAddress);
     token.transferFrom(msg.sender, address(this), _amount);
     totalBalance += _amount;
     balances[msg.sender][_tx_id].amount = _amount;
