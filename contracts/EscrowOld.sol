@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "./EscrowNFT.sol";
 
-contract Escrow is Ownable {
+contract EscrowOld is Ownable {
 
     EscrowNFT public escrowNFT;
     bool public initialized = false;
